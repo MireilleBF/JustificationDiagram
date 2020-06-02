@@ -46,11 +46,15 @@ jobs:
       uses: actions/download-artifact@v1
       with:
           name: GeneratedJD
+          env-url: FOOBAR
+    - name: Use URL for GeneratedJD
+      run: echo "${{ env.FOOBAR }}"  
     - name: Print the final result
       shell: bash
       run: |
           value=`cat GeneratedJD/*`
           echo The result is $value
+
     - name: Archive realization
       uses: actions/upload-artifact@v2
       with: 
