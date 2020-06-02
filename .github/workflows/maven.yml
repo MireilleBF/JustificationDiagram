@@ -36,10 +36,13 @@ jobs:
     - name: JD&TODO generation 
       run: mvn exec:java -Dexec.mainClass="JDCompiler" -Dexec.args="examples/Pattern4CI.jd -o output/GeneratedJD/Pattern4CI -svg -svgR -td output/realization/realization.txt -rea"
     - name: Archive JD&TODO
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@master
       with: 
         name: GeneratedJD
         path: output/GeneratedJD
+        env-url: FOOBAR
+    - name: Use URL for something
+      run: echo "${{ env.FOOBAR }}"
     - name: List the result
       run: echo output/GeneratedJD
     - name: Download generated JD
