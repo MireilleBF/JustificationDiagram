@@ -43,12 +43,12 @@ jobs:
     - name: List the result
       run: echo output/GeneratedJD
     - name: Download generated JD
-        uses: actions/download-artifact@v1
-        with:
+      uses: actions/download-artifact@v1
+      with:
           name: output
     - name: Print the final result
-        shell: bash
-        run: |
+      shell: bash
+      run: |
           value=`cat output/GeneratedJD`
           echo The result is $value
     - name: Archive realization
