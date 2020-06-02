@@ -45,7 +45,7 @@ jobs:
     - name: Download generated JD
       uses: actions/download-artifact@v1
       with:
-          name: output
+          name: output/GeneratedJD
     - name: Print the final result
       shell: bash
       run: |
