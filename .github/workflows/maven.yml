@@ -49,7 +49,7 @@ jobs:
     - name: Print the final result
       shell: bash
       run: |
-          value=`cat GeneratedJD`
+          value=`cat GeneratedJD/*`
           echo The result is $value
     - name: Archive realization
       uses: actions/upload-artifact@v2
