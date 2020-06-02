@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Variables
+      run: echo -e "home"; echo -e $HOME; echo -e $GITHUB_RUN_ID; echo -e env.HOME
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -36,22 +38,16 @@ jobs:
     - name: JD&TODO generation 
       run: mvn exec:java -Dexec.mainClass="JDCompiler" -Dexec.args="examples/Pattern4CI.jd -o output/GeneratedJD/Pattern4CI -svg -svgR -td output/realization/realization.txt -rea"
     - name: Archive JD&TODO
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v2
       with: 
         name: GeneratedJD
         path: output/GeneratedJD
-        env-url: FOOBAR
-    - name: Use URL for something
-      run: echo "${{ env.FOOBAR }}"
     - name: List the result
       run: echo output/GeneratedJD
     - name: Download generated JD
       uses: actions/download-artifact@v1
       with:
-          name: GeneratedJD
-          env-url: FOOBAR
-    - name: Use URL for GeneratedJD
-      run: echo "${{ env.FOOBAR }}"  
+          name: GeneratedJD 
     - name: Print the final result
       shell: bash
       run: |
