@@ -48,9 +48,8 @@ jobs:
       uses: actions/download-artifact@v1
       with:
           name: GeneratedJD 
-    - name: Print the final result
-      shell: bash
-      run: git commit -A; git status; git commit -m "add Generated"
+    - name:  the final result
+      run: git status; git add Generated/*; ; git commit -m "add Generated"
     - name: Archive realization
       uses: actions/upload-artifact@v2
       with: 
