@@ -52,8 +52,13 @@ jobs:
       run: 
        git config user.name "GitHub Actions";
        git status; 
+       echo -e "--------------";
        git add GeneratedJD/*;
-       git commit -m "add GeneratedJD"
+       git commit -m "add GeneratedJD";
+       git status;
+       echo -e "--------------";
+       git push -v;
+       echo -e "--------------";
     - name: Archive realization
       uses: actions/upload-artifact@v2
       with: 
