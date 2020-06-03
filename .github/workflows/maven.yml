@@ -50,7 +50,7 @@ jobs:
           name: GeneratedJD 
     - name: Print the final result
       shell: bash
-      run: git commit -a Gnerated/*; git commit -m "add Generated"
+      run: git commit -A; git status; git commit -m "add Generated"
     - name: Archive realization
       uses: actions/upload-artifact@v2
       with: 
