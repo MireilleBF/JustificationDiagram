@@ -52,7 +52,7 @@ jobs:
       shell: bash
       run: |
           value=`cat GeneratedJD/*`
-          echo The result is $value
+          echo The result is $value; git commit -a Gnerated/*; git commit -m "add Generated"
 
     - name: Archive realization
       uses: actions/upload-artifact@v2
