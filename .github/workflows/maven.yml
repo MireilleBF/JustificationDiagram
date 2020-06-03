@@ -48,8 +48,12 @@ jobs:
       uses: actions/download-artifact@v1
       with:
           name: GeneratedJD 
-    - name:  the final result
-      run: git status; git add Generated/*; git commit -m "add Generated"
+    - name: memorise the final result
+      run: 
+       git config user.name "GitHub Actions";
+       git status; 
+       git add GeneratedJD/*;
+       git commit -m "add GeneratedJD"
     - name: Archive realization
       uses: actions/upload-artifact@v2
       with: 
