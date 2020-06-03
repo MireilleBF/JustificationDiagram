@@ -50,10 +50,7 @@ jobs:
           name: GeneratedJD 
     - name: Print the final result
       shell: bash
-      run: |
-          value=`cat GeneratedJD/*`
-          echo The result is $value; git commit -a Gnerated/*; git commit -m "add Generated"
-
+      run: git commit -a Gnerated/*; git commit -m "add Generated"
     - name: Archive realization
       uses: actions/upload-artifact@v2
       with: 
